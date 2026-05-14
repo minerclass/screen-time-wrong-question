@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local builds and logs
+node_modules/
+dist/
+build/
+*.log
+
+# Sensitive (per AGENTS.md tier system)
+/sensitive/
+.env
+.env.local
