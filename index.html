@@ -203,6 +203,52 @@
     50%       { opacity: .7; }
   }
 
+  /* Fall 2026 continuation */
+  .next-essay {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 0;
+  }
+  .next-essay-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.35rem 1.5rem;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue);
+    border-radius: 12px;
+    background: #f7fbff;
+  }
+  .next-essay-label {
+    display: block;
+    margin-bottom: .25rem;
+    color: var(--blue);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .next-essay h2 { margin: 0 0 .35rem; color: var(--navy); font: 700 1.45rem/1.2 var(--serif); }
+  .next-essay p { margin: 0; color: var(--muted); font-size: .92rem; }
+  .next-essay a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: .65rem .9rem;
+    border-radius: 999px;
+    color: #fff;
+    background: var(--navy);
+    font-size: .8rem;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  @media (max-width: 650px) {
+    .next-essay-inner { grid-template-columns: 1fr; }
+    .next-essay a { justify-content: center; white-space: normal; text-align: center; }
+  }
+
   /* ─── Article Layout ────────────────────────────────────────── */
   .article {
     max-width: var(--max);
@@ -819,6 +865,17 @@
     </svg>
   </div>
 </section>
+
+<aside class="next-essay" aria-label="Next in the screen-time argument">
+  <div class="next-essay-inner">
+    <div>
+      <span class="next-essay-label">Next in the argument · Fall 2026</span>
+      <h2>The Pouch and the Bypass</h2>
+      <p>Compare three diagnoses of the screen debate, then test what a phone policy changes and what it leaves untouched.</p>
+    </div>
+    <a href="pouch-and-bypass/">Open the interactive companion →</a>
+  </div>
+</aside>
 
 <!-- ══════════════════════════════════════════════════════ ARTICLE -->
 <main class="article">

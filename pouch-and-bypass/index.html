@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Pouch and the Bypass | Micah J. Miner</title>
+  <meta name="description" content="An interactive companion to Micah J. Miner's fall 2026 essay on phone pouches, screen policy, technoskepticism, and pedagogical friction.">
+  <meta name="author" content="Micah J. Miner">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Pouch and the Bypass">
+  <meta property="og:description" content="What the fall screen debate is actually about, and what it leaves untouched.">
+  <meta property="og:url" content="https://minerclass.github.io/screen-time-wrong-question/pouch-and-bypass/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Pouch and the Bypass">
+  <meta name="twitter:description" content="A screen-policy debate viewed through technoskepticism and pedagogical friction.">
+  <link rel="canonical" href="https://minerclass.github.io/screen-time-wrong-question/pouch-and-bypass/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318334a'/%3E%3Cpath d='M18 15h28v34H18z' fill='none' stroke='%23d7a83e' stroke-width='4'/%3E%3Cpath d='M24 25h16M24 33h16M24 41h10' stroke='%23fffdf8' stroke-width='3'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #17212b;
+      --paper: #f5f0e6;
+      --paper-2: #ece4d5;
+      --navy: #18334a;
+      --teal: #176b68;
+      --gold: #d7a83e;
+      --rust: #a9472c;
+      --muted: #5c6670;
+      --line: rgba(23, 33, 43, .18);
+      --white: #fffdf8;
+      --shadow: 0 18px 48px rgba(24, 51, 74, .13);
+      --radius: 22px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.62;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: .7rem 1rem;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 8px;
+      transform: translateY(-150%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(24, 51, 74, .96);
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .brand {
+      margin-right: auto;
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,.84);
+      font-size: .78rem;
+      font-weight: 750;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background:
+        radial-gradient(circle at 82% 25%, rgba(215,168,62,.28), transparent 28%),
+        radial-gradient(circle at 16% 78%, rgba(23,107,104,.35), transparent 34%),
+        var(--navy);
+      padding: clamp(74px, 11vw, 138px) 0 84px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 480px;
+      right: 8%;
+      top: 12%;
+      border: 2px solid rgba(255,255,255,.18);
+      border-radius: 46% 46% 18% 18%;
+      transform: rotate(8deg);
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: clamp(42px, 8vw, 100px);
+      align-items: end;
+    }
+    .eyebrow {
+      display: inline-flex;
+      padding: .45rem .7rem;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      color: #f7d98f;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 9ch;
+      margin: 18px 0 24px;
+      font: 700 clamp(3.4rem, 9vw, 7.4rem)/.88 var(--serif);
+      letter-spacing: -.055em;
+    }
+    .subtitle {
+      max-width: 31ch;
+      margin-bottom: 0;
+      color: rgba(255,255,255,.84);
+      font: 400 clamp(1.15rem, 2.2vw, 1.65rem)/1.45 var(--serif);
+    }
+    .thesis-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: var(--radius);
+      background: rgba(7, 22, 34, .56);
+      box-shadow: var(--shadow);
+    }
+    .thesis-card span {
+      display: block;
+      margin-bottom: 12px;
+      color: #f7d98f;
+      font-size: .73rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .thesis-card p { margin: 0; font: 400 1.28rem/1.5 var(--serif); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: .74rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #17212b;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .button.secondary { color: #fff; background: transparent; border-color: rgba(255,255,255,.4); }
+
+    .section { padding: clamp(70px, 10vw, 118px) 0; }
+    .section.alt { background: var(--paper-2); }
+    .section.dark { color: #fff; background: #102839; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .65fr);
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+    .section-kicker {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--rust);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .dark .section-kicker { color: #f7d98f; }
+    h2 {
+      max-width: 16ch;
+      margin-bottom: 0;
+      font: 700 clamp(2.2rem, 5vw, 4.5rem)/1 var(--serif);
+      letter-spacing: -.045em;
+    }
+    .section-intro { max-width: 62ch; margin-bottom: 0; color: var(--muted); font-size: 1.06rem; }
+    .dark .section-intro { color: rgba(255,255,255,.74); }
+
+    .diagnosis-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, .42fr) minmax(0, 1fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .diagnosis-tabs { display: grid; align-content: start; padding: 12px; background: var(--navy); }
+    .diagnosis-tab {
+      width: 100%;
+      padding: 18px;
+      border: 0;
+      border-radius: 13px;
+      color: rgba(255,255,255,.68);
+      background: transparent;
+      text-align: left;
+    }
+    .diagnosis-tab strong { display: block; color: inherit; font-size: 1rem; }
+    .diagnosis-tab span { display: block; margin-top: 3px; font-size: .8rem; }
+    .diagnosis-tab[aria-selected="true"] { color: #17212b; background: var(--gold); }
+    .diagnosis-panel { min-height: 420px; display: grid; align-content: center; padding: clamp(30px, 5vw, 64px); }
+    .diagnosis-panel h3 { margin-bottom: 12px; color: var(--navy); font: 700 2rem/1.15 var(--serif); }
+    .diagnosis-panel .claim { max-width: 44ch; font-size: 1.18rem; }
+    .scope {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .scope div { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #f8f4eb; }
+    .scope strong { display: block; margin-bottom: 4px; color: var(--rust); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .comparison article {
+      padding: clamp(26px, 4vw, 44px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .comparison article:first-child { border-top: 6px solid var(--teal); }
+    .comparison article:last-child { border-top: 6px solid var(--rust); }
+    .comparison h3 { font: 700 1.8rem/1.15 var(--serif); }
+    .comparison ul { margin: 18px 0 0; padding-left: 1.2rem; }
+    .comparison li + li { margin-top: 10px; }
+    .bridge {
+      margin-top: 22px;
+      padding: clamp(24px, 4vw, 40px);
+      border-radius: var(--radius);
+      color: #fff;
+      background: var(--teal);
+      font: 400 clamp(1.25rem, 2.5vw, 1.75rem)/1.5 var(--serif);
+    }
+    .bridge strong { color: #fff0bc; }
+
+    .friction-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .friction-card { padding: 24px; border: 1px solid rgba(255,255,255,.16); border-radius: 18px; background: rgba(255,255,255,.06); }
+    .friction-card b { display: inline-grid; width: 34px; height: 34px; place-items: center; margin-bottom: 24px; border-radius: 50%; color: var(--navy); background: var(--gold); }
+    .friction-card h3 { margin-bottom: 8px; font: 700 1.35rem/1.15 var(--serif); }
+    .friction-card p { margin-bottom: 0; color: rgba(255,255,255,.72); font-size: .94rem; }
+
+    .audit {
+      display: grid;
+      grid-template-columns: minmax(260px, .42fr) minmax(0, 1fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: start;
+    }
+    .audit-progress {
+      position: sticky;
+      top: 94px;
+      padding: 26px;
+      border-radius: var(--radius);
+      color: #fff;
+      background: var(--navy);
+    }
+    .audit-progress strong { display: block; margin-bottom: 8px; font: 700 2.6rem/1 var(--serif); }
+    .meter { height: 8px; margin: 18px 0; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.2); }
+    .meter span { display: block; width: 0; height: 100%; background: var(--gold); transition: width .25s ease; }
+    .audit-list { display: grid; gap: 12px; }
+    .audit-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+    }
+    .audit-item input { width: 22px; height: 22px; margin-top: 3px; accent-color: var(--teal); }
+    .audit-item span { font-weight: 700; }
+
+    .source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .source-link { display: block; padding: 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 14px; text-decoration: none; background: rgba(255,255,255,.05); }
+    .source-link:hover { border-color: var(--gold); }
+    .source-link strong { display: block; color: #fff; }
+    .source-link span { color: rgba(255,255,255,.66); font-size: .88rem; }
+
+    .cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .55fr);
+      gap: 40px;
+      align-items: center;
+      padding: clamp(34px, 6vw, 62px);
+      border-radius: var(--radius);
+      color: #fff;
+      background: var(--rust);
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { max-width: 14ch; }
+    .cta p { max-width: 58ch; margin: 18px 0 0; color: rgba(255,255,255,.82); }
+    .cta-actions { display: grid; gap: 10px; }
+    .cta .button { width: 100%; }
+    .footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .section-head, .audit, .cta { grid-template-columns: 1fr; }
+      .hero::after { opacity: .35; right: -130px; }
+      .friction-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .audit-progress { position: static; }
+    }
+    @media (max-width: 650px) {
+      .shell { width: min(100% - 28px, 1160px); }
+      .nav-links a:not(:last-child) { display: none; }
+      .hero { padding-top: 62px; }
+      h1 { font-size: clamp(3rem, 18vw, 5.4rem); }
+      .diagnosis-layout, .comparison, .scope, .friction-grid, .source-grid { grid-template-columns: 1fr; }
+      .diagnosis-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .diagnosis-tab:last-child { grid-column: 1 / -1; }
+      .diagnosis-panel { min-height: 500px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the argument</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="shell nav-inner">
+      <a class="brand" href="https://minerclass.github.io/">Micah J. Miner</a>
+      <div class="nav-links">
+        <a href="#diagnoses">The debate</a>
+        <a href="#audit">District questions</a>
+        <a href="https://micahminer.com/blog/">Read the essay</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow">Fall 2026 public scholarship companion</span>
+        <h1>The Pouch and the Bypass</h1>
+        <p class="subtitle">What the fall screen debate is actually about, and what it leaves untouched.</p>
+        <div class="hero-actions">
+          <a class="button" href="#diagnoses">Enter the debate</a>
+          <a class="button secondary" href="https://micahminer.com/blog/">Read at micahminer.com</a>
+        </div>
+      </div>
+      <aside class="thesis-card" aria-label="Central argument">
+        <span>The central distinction</span>
+        <p>A phone pouch can change access, attention, and enforcement. It cannot determine what educators build in the space it creates.</p>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" id="diagnoses">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Three diagnoses</span>
+            <h2>Not one screen debate.</h2>
+          </div>
+          <p class="section-intro">Jared Cooney Horvath, Jonathan Haidt, and Stefan Bauschard are often placed in a two-sided argument. Their central claims operate at different levels. Select each position to see where it is strongest and where the inference becomes vulnerable.</p>
+        </div>
+
+        <div class="diagnosis-layout">
+          <div class="diagnosis-tabs" role="tablist" aria-label="Positions in the screen debate">
+            <button class="diagnosis-tab" id="tab-horvath" role="tab" aria-selected="true" aria-controls="diagnosis-panel" data-key="horvath">
+              <strong>Horvath</strong><span>Learning and cognition</span>
+            </button>
+            <button class="diagnosis-tab" id="tab-haidt" role="tab" aria-selected="false" aria-controls="diagnosis-panel" data-key="haidt">
+              <strong>Haidt</strong><span>Childhood and development</span>
+            </button>
+            <button class="diagnosis-tab" id="tab-bauschard" role="tab" aria-selected="false" aria-controls="diagnosis-panel" data-key="bauschard">
+              <strong>Bauschard</strong><span>Institutions and attribution</span>
+            </button>
+          </div>
+          <article class="diagnosis-panel" id="diagnosis-panel" role="tabpanel" aria-live="polite" aria-labelledby="tab-horvath" tabindex="0"></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="pouch-test">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Policy and design</span>
+            <h2>What the pouch changes.</h2>
+          </div>
+          <p class="section-intro">A restriction can be worthwhile without carrying more explanatory or educational weight than it can bear. Ban and redesign do not have to be rivals.</p>
+        </div>
+        <div class="comparison">
+          <article>
+            <h3>The pouch can change</h3>
+            <ul>
+              <li>Immediate access to a personal phone</li>
+              <li>Notifications and opportunities for interruption</li>
+              <li>Enforcement consistency during the school day</li>
+              <li>The visible norms surrounding attention</li>
+            </ul>
+          </article>
+          <article>
+            <h3>The pouch leaves untouched</h3>
+            <ul>
+              <li>The quality and purpose of assigned work</li>
+              <li>How district platforms organize attention</li>
+              <li>Whether students practice argument and judgment</li>
+              <li>The unequal conditions shaping vulnerability and access</li>
+            </ul>
+          </article>
+        </div>
+        <div class="bridge"><strong>Removing a device creates space.</strong> It does not determine what educators build in it. The policy question and the pedagogical question must remain connected.</div>
+      </div>
+    </section>
+
+    <section class="section dark" id="friction">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Pedagogical friction</span>
+            <h2>Four layers of the decision.</h2>
+          </div>
+          <p class="section-intro">The pouch works primarily at the infrastructural layer. A complete response also asks what kinds of thinking, expression, agency, and participation the learning environment preserves.</p>
+        </div>
+        <div class="friction-grid">
+          <article class="friction-card"><b>1</b><h3>Noetic</h3><p>What thinking, attention, interpretation, and memory does the learner still have to perform?</p></article>
+          <article class="friction-card"><b>2</b><h3>Rhetorical</h3><p>What composing, argument, dialogue, and explanation remain visible and accountable?</p></article>
+          <article class="friction-card"><b>3</b><h3>Existential</h3><p>Where does the learner experience ownership, consequence, uncertainty, and becoming?</p></article>
+          <article class="friction-card"><b>4</b><h3>Infrastructural</h3><p>Which rules, devices, platforms, and institutional conditions shape who can participate?</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="audit">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">District conversation</span>
+            <h2>Six questions before the vote.</h2>
+          </div>
+          <p class="section-intro">Use the checklist to prepare a leadership conversation. Nothing is saved or transmitted. The goal is not to produce a score, but to expose questions a simple yes-or-no policy debate can hide.</p>
+        </div>
+        <div class="audit">
+          <aside class="audit-progress" aria-live="polite">
+            <strong><span id="audit-count">0</span> of 6</strong>
+            <span>questions brought into the conversation</span>
+            <div class="meter" aria-hidden="true"><span id="audit-meter"></span></div>
+            <small>Checking a question means your team has made it explicit, not that the issue is resolved.</small>
+          </aside>
+          <div class="audit-list">
+            <label class="audit-item"><input type="checkbox"><span>What educational problem are we actually trying to solve?</span></label>
+            <label class="audit-item"><input type="checkbox"><span>What evidence connects the proposed policy to that problem?</span></label>
+            <label class="audit-item"><input type="checkbox"><span>What will change during the school day, and what will remain untouched?</span></label>
+            <label class="audit-item"><input type="checkbox"><span>Which students may benefit, and which may encounter new barriers?</span></label>
+            <label class="audit-item"><input type="checkbox"><span>What learning design will fill the space the restriction creates?</span></label>
+            <label class="audit-item"><input type="checkbox"><span>How will we know whether learning improved, rather than compliance alone?</span></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="sources">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Continue reading</span>
+            <h2>Follow the disagreement.</h2>
+          </div>
+          <p class="section-intro">The companion maps the positions. The linked sources contain the authors' own arguments and the evidence needed to assess them.</p>
+        </div>
+        <div class="source-grid">
+          <a class="source-link" href="https://www.penguinrandomhouse.com/books/838437/the-digital-delusion-by-jared-cooney-horvath-phd-med/" target="_blank" rel="noopener"><strong>Jared Cooney Horvath</strong><span>The Digital Delusion, publisher page</span></a>
+          <a class="source-link" href="https://www.afterbabel.com/" target="_blank" rel="noopener"><strong>Jonathan Haidt and After Babel</strong><span>The developmental and phone-free-school argument</span></a>
+          <a class="source-link" href="https://stefanbauschard.substack.com/p/the-screenish-inquisition-the-newest" target="_blank" rel="noopener"><strong>Stefan Bauschard</strong><span>The Screenish Inquisition</span></a>
+          <a class="source-link" href="https://www.civicsoftechnology.org/curriculum" target="_blank" rel="noopener"><strong>Civics of Technology Project</strong><span>The five technoskeptical questions</span></a>
+          <a class="source-link" href="https://publications.aap.org/pediatrics/article/157/2/e2025075320/206129/Digital-Ecosystems-Children-and-Adolescents-Policy" target="_blank" rel="noopener"><strong>American Academy of Pediatrics</strong><span>Digital ecosystems, children, and adolescents</span></a>
+          <a class="source-link" href="https://doi.org/10.1016/j.lanepe.2025.101211" target="_blank" rel="noopener"><strong>SMART Schools study</strong><span>School phone policies and their associations</span></a>
+          <a class="source-link" href="https://digitalcommons.nl.edu/ie/vol18/iss1/4" target="_blank" rel="noopener"><strong>Micah J. Miner</strong><span>When the Output Looks Like Learning</span></a>
+          <a class="source-link" href="https://minerclass.github.io/technoskepticism-primer/" target="_blank" rel="noopener"><strong>Technoskepticism primer</strong><span>From Postman's propositions to educational practice</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell cta">
+        <div>
+          <span class="eyebrow">Bring the question into practice</span>
+          <h2>Move beyond the phone-policy binary.</h2>
+          <p>Micah works with K–12 leaders on screen ecology, pedagogical friction, AI governance, instructional design, and the institutional conditions that support durable learning.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="button" href="https://micahminer.com/consulting/">Speaking and consulting</a>
+          <a class="button secondary" href="https://micahminer.com/contact/">Start a conversation</a>
+          <a class="button secondary" href="https://minerclass.github.io/screen-practice-compass/">Open the Screen Practice Compass</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>Interactive companion to <em>The Pouch and the Bypass</em> by Micah J. Miner.</span>
+      <span><a href="https://micahminer.com/">micahminer.com</a> · <a href="https://github.com/minerclass/screen-time-wrong-question">Source</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const diagnoses = {
+      horvath: {
+        tab: "tab-horvath",
+        title: "Learning and cognition",
+        claim: "Some digital media can remove forms of attention, encoding, and effort that particular learning tasks require.",
+        strongest: "Task-level questions about medium, distraction, reading, note taking, and cognitive load.",
+        caution: "Task-level effects do not automatically establish a system-level explanation for educational decline."
+      },
+      haidt: {
+        tab: "tab-haidt",
+        title: "Childhood and development",
+        claim: "Phone-based childhood may displace sleep, embodied play, independence, and face-to-face relationships during sensitive developmental periods.",
+        strongest: "A broad developmental account that reaches beyond the school day and beyond academic achievement.",
+        caution: "A school phone policy is one intervention inside that account, not a test of the entire thesis."
+      },
+      bauschard: {
+        tab: "tab-bauschard",
+        title: "Institutions and attribution",
+        claim: "Schools can use screens as a convenient explanation for problems also shaped by pedagogy, poverty, absenteeism, funding, and the grammar of schooling.",
+        strongest: "The political and institutional opportunity cost of treating removal as reform completed.",
+        caution: "The argument assumes restriction and redesign compete, although schools can pursue both."
+      }
+    };
+
+    const tabs = [...document.querySelectorAll(".diagnosis-tab")];
+    const panel = document.getElementById("diagnosis-panel");
+
+    function showDiagnosis(key, moveFocus = false) {
+      const diagnosis = diagnoses[key];
+      tabs.forEach(tab => tab.setAttribute("aria-selected", String(tab.dataset.key === key)));
+      panel.setAttribute("aria-labelledby", diagnosis.tab);
+      panel.innerHTML = `
+        <span class="section-kicker">${diagnosis.title}</span>
+        <h3>${diagnosis.claim}</h3>
+        <div class="scope">
+          <div><strong>Strongest contribution</strong>${diagnosis.strongest}</div>
+          <div><strong>Analytical caution</strong>${diagnosis.caution}</div>
+        </div>`;
+      if (moveFocus) document.getElementById(diagnosis.tab).focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => showDiagnosis(tab.dataset.key));
+      tab.addEventListener("keydown", event => {
+        if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(event.key)) return;
+        event.preventDefault();
+        const direction = ["ArrowRight", "ArrowDown"].includes(event.key) ? 1 : -1;
+        const next = (index + direction + tabs.length) % tabs.length;
+        showDiagnosis(tabs[next].dataset.key, true);
+      });
+    });
+    showDiagnosis("horvath");
+
+    const auditBoxes = [...document.querySelectorAll(".audit-item input")];
+    const auditCount = document.getElementById("audit-count");
+    const auditMeter = document.getElementById("audit-meter");
+    function updateAudit() {
+      const count = auditBoxes.filter(box => box.checked).length;
+      auditCount.textContent = count;
+      auditMeter.style.width = `${count / auditBoxes.length * 100}%`;
+    }
+    auditBoxes.forEach(box => box.addEventListener("change", updateAudit));
+  </script>
+</body>
+</html>

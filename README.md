@@ -4,6 +4,10 @@ An interactive companion to the CoSN blog post *Screen Time Is the Wrong Questio
 
 The piece reframes the K–12 screen time conversation around cognitive work and pedagogical friction in the age of generative AI. This site renders the full essay with interactive elements designed for district technology leaders, instructional coaches, and school board members.
 
+The repository also contains a Fall 2026 public-scholarship companion:
+
+- [`pouch-and-bypass/`](https://minerclass.github.io/screen-time-wrong-question/pouch-and-bypass/) maps the distinct arguments made by Jared Cooney Horvath, Jonathan Haidt, and Stefan Bauschard; applies the pedagogical-friction framework; and offers a six-question district policy audit.
+
 ## View the site
 
 Open `index.html` in any modern browser, or enable GitHub Pages on this repository to publish it at:
@@ -23,6 +27,8 @@ Open `index.html` in any modern browser, or enable GitHub Pages on this reposito
 ```
 .
 ├── index.html      Single-file site with inline CSS and JS
+├── pouch-and-bypass/
+│   └── index.html  Fall 2026 debate companion and district audit
 ├── README.md       This file
 ├── LICENSE         Creative Commons BY-NC-SA 4.0
 └── .nojekyll       Disables Jekyll processing on GitHub Pages
