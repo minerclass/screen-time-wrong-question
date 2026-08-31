@@ -383,6 +383,41 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
+
+    /* Figures. Scoped so nothing collides with existing classes. */
+    .mjm-fig {
+      margin: 2.75rem 0;
+      padding: 1.75rem 1.75rem 1.35rem;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+    }
+    .mjm-fig svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .mjm-fig figcaption {
+      margin-top: 1.3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-size: .93rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .mjm-fig figcaption b { color: var(--ink); font-weight: 600; }
+    @media (max-width: 640px) {
+      .mjm-fig { padding: 1.15rem 1.15rem .95rem; border-radius: 14px; }
+      /* Scroll rather than shrink: at 375px the labels would drop to ~6px. */
+      .mjm-fig svg { min-width: 540px; }
+    }
+
+    .mjm-note {
+      margin: 26px 0 0;
+      padding: 18px 20px;
+      border-left: 5px solid var(--teal);
+      border-radius: 0 14px 14px 0;
+      background: var(--paper-2);
+    }
+    .mjm-note strong { color: var(--teal); }
   </style>
 </head>
 <body>
@@ -479,6 +514,58 @@
           </article>
         </div>
         <div class="bridge"><strong>Removing a device creates space.</strong> It does not determine what educators build in it. The policy question and the pedagogical question must remain connected.</div>
+        <figure class="mjm-fig">
+          <svg viewBox="0 0 720 330" role="img" aria-label="Two parallel bypass paths. A student routes around cognitive work and collects the credential. Adults route around instructional redesign and collect credit for reform.">
+          <defs>
+          <marker id="mjmFigBypassArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--muted)"/>
+          </marker>
+          <marker id="mjmFigBypassArc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--rust)"/>
+          </marker>
+          </defs>
+
+
+          <text x="0" y="16" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--teal)" letter-spacing="1.4">THE STUDENT</text>
+
+          <rect x="0" y="72" width="150" height="52" rx="9" fill="var(--paper-2)" stroke="var(--line)"/>
+          <text x="75" y="103" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--ink)">Assigned work</text>
+
+          <rect x="285" y="72" width="150" height="52" rx="9" fill="none" stroke="var(--line)" stroke-dasharray="5 4"/>
+          <text x="360" y="96" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--muted)">cognitive</text>
+          <text x="360" y="113" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--muted)">work</text>
+
+          <rect x="570" y="72" width="150" height="52" rx="9" fill="var(--paper-2)" stroke="var(--line)"/>
+          <text x="645" y="103" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--ink)">Credential</text>
+
+          <line x1="150" y1="98" x2="278" y2="98" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#mjmFigBypassArrow)"/>
+          <line x1="435" y1="98" x2="563" y2="98" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#mjmFigBypassArrow)"/>
+          <path d="M 150 84 C 280 22, 440 22, 570 84" fill="none" stroke="var(--rust)" stroke-width="2.2" marker-end="url(#mjmFigBypassArc)"/>
+          <text x="360" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--rust)">bypass</text>
+
+          <line x1="0" y1="165" x2="720" y2="165" stroke="var(--line)"/>
+
+
+          <text x="0" y="196" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--teal)" letter-spacing="1.4">THE INSTITUTION</text>
+
+          <rect x="0" y="252" width="150" height="52" rx="9" fill="var(--paper-2)" stroke="var(--line)"/>
+          <text x="75" y="283" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--ink)">Demand to act</text>
+
+          <rect x="285" y="252" width="150" height="52" rx="9" fill="none" stroke="var(--line)" stroke-dasharray="5 4"/>
+          <text x="360" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--muted)">instructional</text>
+          <text x="360" y="293" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--muted)">redesign</text>
+
+          <rect x="570" y="252" width="150" height="52" rx="9" fill="var(--paper-2)" stroke="var(--line)"/>
+          <text x="645" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--ink)">Credit for</text>
+          <text x="645" y="293" text-anchor="middle" font-family="Inter, sans-serif" font-size="13.5" fill="var(--ink)">reform</text>
+
+          <line x1="150" y1="278" x2="278" y2="278" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#mjmFigBypassArrow)"/>
+          <line x1="435" y1="278" x2="563" y2="278" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#mjmFigBypassArrow)"/>
+          <path d="M 150 264 C 280 202, 440 202, 570 264" fill="none" stroke="var(--rust)" stroke-width="2.2" marker-end="url(#mjmFigBypassArc)"/>
+          <text x="360" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--rust)">the pouch</text>
+          </svg>
+          <figcaption><b>The pouch is the institutional version of the bypass.</b> The dashed box is the work that was supposed to happen. The curve is what happens instead. Students route around the cognitive work and still collect the credential. Adults route around the redesign and still collect the credit.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -523,7 +610,78 @@
             <a href="https://gem-report-2023.unesco.org/recommendations/" target="_blank" rel="noopener">Use the GEM policy compass</a>
           </article>
         </div>
+        <p class="mjm-note"><strong>From inside one of these decisions.</strong> In Beach Park District 3, where I am director of innovation and technology, we are adding Chromebook charging stations so devices stay at school rather than going home each night. Districts across my region and around the country are making the same move. None of it is a phone policy, and all of it changes what a student can do with a school machine at nine at night.</p>
+        <figure class="mjm-fig">
+          <svg viewBox="0 0 720 300" role="img" aria-label="Devices in schools rise across two decades and then fall, while a line representing instructional change stays flat throughout.">
+          <text x="0" y="16" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--muted)" letter-spacing="1.4">DEVICES IN SCHOOLS</text>
+
+          <path d="M 0 150 C 120 148, 190 120, 290 88 C 360 64, 410 52, 470 52 C 540 52, 590 84, 720 128"
+          fill="none" stroke="var(--navy)" stroke-width="2.5"/>
+
+          <circle cx="60" cy="147" r="4" fill="var(--navy)"/>
+          <text x="60" y="172" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="var(--muted)">carts</text>
+
+          <circle cx="290" cy="88" r="4" fill="var(--navy)"/>
+          <text x="290" y="76" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="var(--muted)">1:1 programs</text>
+
+          <circle cx="470" cy="52" r="4" fill="var(--navy)"/>
+          <text x="470" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="var(--muted)">pandemic surge</text>
+
+          <circle cx="600" cy="86" r="4" fill="var(--rust)"/>
+          <text x="606" y="76" font-family="Inter, sans-serif" font-size="12" fill="var(--rust)">Sweden reverses</text>
+
+          <circle cx="690" cy="118" r="4" fill="var(--rust)"/>
+          <text x="720" y="146" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="var(--rust)">bans</text>
+
+          <line x1="0" y1="205" x2="720" y2="205" stroke="var(--line)"/>
+
+          <text x="0" y="234" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--muted)" letter-spacing="1.4">THE GRAMMAR OF SCHOOLING</text>
+          <line x1="0" y1="262" x2="720" y2="262" stroke="var(--gold)" stroke-width="5"/>
+          <text x="0" y="288" font-family="Inter, sans-serif" font-size="12.5" fill="var(--muted)">The worksheet became a PDF. The PDF became a worksheet.</text>
+
+          <text x="0" y="196" font-family="Inter, sans-serif" font-size="12" fill="var(--muted)">2001</text>
+          <text x="720" y="196" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="var(--muted)">2026</text>
+          </svg>
+          <figcaption><b>Schools added the machine, then removed it.</b> Instruction did not move either time. If the device were the cause, adding it and removing it should not both leave the grammar of schooling intact. The upper curve is schematic, not plotted data.</figcaption>
+        </figure>
         <p class="evidence-note"><strong>Interpretive caution:</strong> a policy announcement proves that a system changed its rules; it does not prove that the change improved learning or well-being. A cart also changes availability and control, but it can still support 1:1 use during class. Outcomes require separate evaluation.</p>
+        <p class="mjm-note"><strong>A test of that caution.</strong> A Dutch national evaluation of the classroom phone ban found most secondary schools reporting better concentration and a better social climate. The SMART Schools study in England measured wellbeing, sleep, attainment, and classroom behaviour directly, and found no differences between restrictive and permissive schools. Both findings can hold at once. The distance between them is the thing worth watching.</p>
+        <figure class="mjm-fig">
+          <svg viewBox="0 0 720 340" role="img" aria-label="Self-reported school perceptions of a phone ban show improvement, while measured outcomes in the SMART Schools study show no difference across six measures.">
+          <text x="0" y="16" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--muted)" letter-spacing="1.4">WHAT A BAN IS EXPERIENCED AS PRODUCING</text>
+
+
+          <text x="0" y="52" font-family="Inter, sans-serif" font-size="13" fill="var(--ink)">Concentration improved</text>
+          <rect x="0" y="60" width="330" height="16" rx="4" fill="var(--paper-2)"/>
+          <rect x="0" y="60" width="248" height="16" rx="4" fill="var(--teal)"/>
+          <text x="342" y="73" font-family="Inter, sans-serif" font-size="12.5" fill="var(--muted)">about three-quarters of schools</text>
+
+          <text x="0" y="104" font-family="Inter, sans-serif" font-size="13" fill="var(--ink)">Better social climate</text>
+          <rect x="0" y="112" width="330" height="16" rx="4" fill="var(--paper-2)"/>
+          <rect x="0" y="112" width="215" height="16" rx="4" fill="var(--teal)"/>
+          <text x="342" y="125" font-family="Inter, sans-serif" font-size="12.5" fill="var(--muted)">about two-thirds</text>
+
+          <text x="0" y="156" font-family="Inter, sans-serif" font-size="13" fill="var(--ink)">Better academic performance</text>
+          <rect x="0" y="164" width="330" height="16" rx="4" fill="var(--paper-2)"/>
+          <rect x="0" y="164" width="110" height="16" rx="4" fill="var(--teal)"/>
+          <text x="342" y="177" font-family="Inter, sans-serif" font-size="12.5" fill="var(--muted)">about one-third</text>
+
+          <text x="0" y="200" font-family="Inter, sans-serif" font-size="11.5" fill="var(--muted)" font-style="italic">Dutch national evaluation. Schools reporting, not outcomes measured.</text>
+
+          <line x1="0" y1="220" x2="720" y2="220" stroke="var(--line)"/>
+
+          <text x="0" y="248" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="var(--muted)" letter-spacing="1.4">WHAT IT CAN BE SHOWN TO PRODUCE</text>
+
+          <text x="0" y="280" font-family="Inter, sans-serif" font-size="13" fill="var(--ink)">Wellbeing &middot; sleep &middot; attainment &middot; anxiety &middot; depression &middot; disruptive behaviour</text>
+          <line x1="0" y1="296" x2="330" y2="296" stroke="var(--rust)" stroke-width="3"/>
+          <circle cx="0" cy="296" r="4" fill="var(--rust)"/>
+          <circle cx="330" cy="296" r="4" fill="var(--rust)"/>
+          <text x="342" y="301" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="var(--rust)">no measured difference</text>
+
+          <text x="0" y="330" font-family="Inter, sans-serif" font-size="11.5" fill="var(--muted)" font-style="italic">SMART Schools. Thirty English secondary schools, 1,227 students, cross-sectional.</text>
+          </svg>
+          <figcaption><b>What a ban is experienced as producing, and what it can be shown to produce.</b> The Dutch national evaluation reports what schools say. SMART Schools measured outcomes and found no differences. Both can stand: climate is real and instruments miss things. The two panels do not measure the same construct.</figcaption>
+        </figure>
       </div>
     </section>
 
