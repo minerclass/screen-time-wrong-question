@@ -6,7 +6,8 @@ The piece reframes the K–12 screen time conversation around cognitive work and
 
 The repository also contains a Fall 2026 public-scholarship companion:
 
-- [`pouch-and-bypass/`](https://minerclass.github.io/screen-time-wrong-question/pouch-and-bypass/) maps the distinct arguments made by Jared Cooney Horvath, Jonathan Haidt, and Stefan Bauschard; applies the pedagogical-friction framework; and offers a six-question district policy audit.
+- [`pouch-and-bypass/`](https://minerclass.github.io/screen-time-wrong-question/pouch-and-bypass/) maps the distinct arguments made by Jared Cooney Horvath, Jonathan Haidt, Candice Odgers, and Stefan Bauschard; examines phone restrictions alongside school-device access models; applies the pedagogical-friction framework; and offers a six-question district policy audit.
+- [`pouch-and-bypass/research-notes.md`](pouch-and-bypass/research-notes.md) records the claim boundaries, APA-style citations, and policy-source distinctions behind the companion.
 
 ## View the site
 
@@ -28,7 +29,8 @@ Open `index.html` in any modern browser, or enable GitHub Pages on this reposito
 .
 ├── index.html      Single-file site with inline CSS and JS
 ├── pouch-and-bypass/
-│   └── index.html  Fall 2026 debate companion and district audit
+│   ├── index.html         Fall 2026 debate companion and district audit
+│   └── research-notes.md  Evidence notes, citations, and policy sources
 ├── README.md       This file
 ├── LICENSE         Creative Commons BY-NC-SA 4.0
 └── .nojekyll       Disables Jekyll processing on GitHub Pages

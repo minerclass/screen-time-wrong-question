@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Pouch and the Bypass | Micah J. Miner</title>
-  <meta name="description" content="An interactive companion to Micah J. Miner's fall 2026 essay on phone pouches, screen policy, technoskepticism, and pedagogical friction.">
+  <meta name="description" content="An interactive companion to Micah J. Miner's fall 2026 essay on phone pouches, school-issued devices, contested screen research, technoskepticism, and pedagogical friction.">
   <meta name="author" content="Micah J. Miner">
   <meta property="og:type" content="article">
   <meta property="og:title" content="The Pouch and the Bypass">
@@ -268,6 +268,39 @@
     }
     .bridge strong { color: #fff0bc; }
 
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .policy-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 12px 28px rgba(20, 32, 43, .07);
+    }
+    .policy-card .policy-type {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--rust);
+      font-size: .74rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .policy-card h3 { margin-bottom: 10px; font: 700 1.45rem/1.15 var(--serif); }
+    .policy-card p { margin-bottom: 14px; color: var(--muted); }
+    .policy-card a { font-weight: 800; }
+    .evidence-note {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--gold);
+      border-radius: 0 14px 14px 0;
+      background: #fff8e5;
+    }
+    .evidence-note strong { color: var(--rust); }
+
     .friction-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
     .friction-card { padding: 24px; border: 1px solid rgba(255,255,255,.16); border-radius: 18px; background: rgba(255,255,255,.06); }
     .friction-card b { display: inline-grid; width: 34px; height: 34px; place-items: center; margin-bottom: 24px; border-radius: 50%; color: var(--navy); background: var(--gold); }
@@ -310,6 +343,8 @@
     .source-link:hover { border-color: var(--gold); }
     .source-link strong { display: block; color: #fff; }
     .source-link span { color: rgba(255,255,255,.66); font-size: .88rem; }
+    .source-heading { margin: 28px 0 12px; color: #fff; font: 700 1.45rem/1.2 var(--serif); }
+    .source-heading:first-of-type { margin-top: 0; }
 
     .cta {
       display: grid;
@@ -332,7 +367,7 @@
     @media (max-width: 900px) {
       .hero-grid, .section-head, .audit, .cta { grid-template-columns: 1fr; }
       .hero::after { opacity: .35; right: -130px; }
-      .friction-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .friction-grid, .policy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .audit-progress { position: static; }
     }
     @media (max-width: 650px) {
@@ -340,9 +375,8 @@
       .nav-links a:not(:last-child) { display: none; }
       .hero { padding-top: 62px; }
       h1 { font-size: clamp(3rem, 18vw, 5.4rem); }
-      .diagnosis-layout, .comparison, .scope, .friction-grid, .source-grid { grid-template-columns: 1fr; }
+      .diagnosis-layout, .comparison, .scope, .friction-grid, .policy-grid, .source-grid { grid-template-columns: 1fr; }
       .diagnosis-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .diagnosis-tab:last-child { grid-column: 1 / -1; }
       .diagnosis-panel { min-height: 500px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -359,6 +393,7 @@
       <a class="brand" href="https://minerclass.github.io/">Micah J. Miner</a>
       <div class="nav-links">
         <a href="#diagnoses">The debate</a>
+        <a href="#policy-landscape">Beyond phones</a>
         <a href="#audit">District questions</a>
         <a href="https://micahminer.com/blog/">Read the essay</a>
       </div>
@@ -378,7 +413,7 @@
       </div>
       <aside class="thesis-card" aria-label="Central argument">
         <span>The central distinction</span>
-        <p>A phone pouch can change access, attention, and enforcement. It cannot determine what educators build in the space it creates.</p>
+        <p>A phone pouch changes one channel of access. School-issued devices, platforms, instructional design, and unequal conditions still shape the screen ecology around it.</p>
       </aside>
     </div>
   </header>
@@ -388,10 +423,10 @@
       <div class="shell">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Three diagnoses</span>
+            <span class="section-kicker">Four lenses</span>
             <h2>Not one screen debate.</h2>
           </div>
-          <p class="section-intro">Jared Cooney Horvath, Jonathan Haidt, and Stefan Bauschard are often placed in a two-sided argument. Their central claims operate at different levels. Select each position to see where it is strongest and where the inference becomes vulnerable.</p>
+          <p class="section-intro">Jared Cooney Horvath, Jonathan Haidt, Candice Odgers, and Stefan Bauschard do not offer interchangeable claims. They work at the levels of learning, development, evidence, and institutions. Select each lens to see where it is strongest and where the inference becomes vulnerable.</p>
         </div>
 
         <div class="diagnosis-layout">
@@ -401,6 +436,9 @@
             </button>
             <button class="diagnosis-tab" id="tab-haidt" role="tab" aria-selected="false" aria-controls="diagnosis-panel" data-key="haidt">
               <strong>Haidt</strong><span>Childhood and development</span>
+            </button>
+            <button class="diagnosis-tab" id="tab-odgers" role="tab" aria-selected="false" aria-controls="diagnosis-panel" data-key="odgers">
+              <strong>Odgers</strong><span>Evidence, variation, and equity</span>
             </button>
             <button class="diagnosis-tab" id="tab-bauschard" role="tab" aria-selected="false" aria-controls="diagnosis-panel" data-key="bauschard">
               <strong>Bauschard</strong><span>Institutions and attribution</span>
@@ -444,6 +482,51 @@
       </div>
     </section>
 
+    <section class="section" id="policy-landscape">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Beyond personal phones</span>
+            <h2>The device policy is not one policy.</h2>
+          </div>
+          <p class="section-intro">Phone pouches regulate personally owned devices. School systems are also reconsidering take-home Chromebooks, classroom carts, grade-level access, entertainment content, paper options, and the balance between digital and analogue learning.</p>
+        </div>
+        <div class="policy-grid">
+          <article class="policy-card">
+            <span class="policy-type">Access model</span>
+            <h3>Take-home 1:1 can become classroom access.</h3>
+            <p>For 2026-27, Battle Ground Public Schools moved middle school students from individual take-home Chromebooks to classroom carts while retaining take-home 1:1 at high school.</p>
+            <a href="https://www.battlegroundps.org/page/chromebooks-2026" target="_blank" rel="noopener">Read the district plan</a>
+          </article>
+          <article class="policy-card">
+            <span class="policy-type">Differentiated 1:1</span>
+            <h3>A cart can still provide one device per learner.</h3>
+            <p>Irvine Unified describes K-6 as 1:1 devices in classroom carts, grades 7-8 as take-home 1:1, and grades 9-12 as a hybrid bring-your-own-device model.</p>
+            <a href="https://support.iusd.org/hc/en-us/articles/5189251297939-Chromebook-Access-in-IUSD" target="_blank" rel="noopener">Compare the grade bands</a>
+          </article>
+          <article class="policy-card">
+            <span class="policy-type">Choice and purpose</span>
+            <h3>Access can be school-based, teacher-directed, and optional at home.</h3>
+            <p>Los Angeles Unified calls for shared devices in primary grades, classroom 1:1 from grade 3, parent opt-in for take-home access, paper homework options, and restrictions on non-instructional content.</p>
+            <a href="https://edtech.lausd.org/apps/pages/index.jsp?pREC_ID=2744566&amp;tota11y=true&amp;type=d&amp;uREC_ID=4455629" target="_blank" rel="noopener">Review LAUSD's considerations</a>
+          </article>
+          <article class="policy-card">
+            <span class="policy-type">Analogue investment</span>
+            <h3>Screen policy can include books, handwriting, and curriculum.</h3>
+            <p>Sweden has funded textbooks, removed preschool requirements for digital tools, restricted non-analogue tools for young children, and kept early national tests on paper.</p>
+            <a href="https://www.government.se/articles/2024/02/government-investing-in-more-reading-time-and-less-screen-time/" target="_blank" rel="noopener">See Sweden's measures</a>
+          </article>
+          <article class="policy-card">
+            <span class="policy-type">Decision framework</span>
+            <h3>Technology should earn its place in the learning design.</h3>
+            <p>UNESCO's global guidance asks whether a use is appropriate, equitable, evidence-based, scalable, and sustainable, and whether it complements rather than supplants human connection.</p>
+            <a href="https://gem-report-2023.unesco.org/recommendations/" target="_blank" rel="noopener">Use the GEM policy compass</a>
+          </article>
+        </div>
+        <p class="evidence-note"><strong>Interpretive caution:</strong> a policy announcement proves that a system changed its rules; it does not prove that the change improved learning or well-being. A cart also changes availability and control, but it can still support 1:1 use during class. Outcomes require separate evaluation.</p>
+      </div>
+    </section>
+
     <section class="section dark" id="friction">
       <div class="shell">
         <div class="section-head">
@@ -479,9 +562,9 @@
             <small>Checking a question means your team has made it explicit, not that the issue is resolved.</small>
           </aside>
           <div class="audit-list">
-            <label class="audit-item"><input type="checkbox"><span>What educational problem are we actually trying to solve?</span></label>
+            <label class="audit-item"><input type="checkbox"><span>What educational problem are we trying to solve, and which technology is implicated?</span></label>
             <label class="audit-item"><input type="checkbox"><span>What evidence connects the proposed policy to that problem?</span></label>
-            <label class="audit-item"><input type="checkbox"><span>What will change during the school day, and what will remain untouched?</span></label>
+            <label class="audit-item"><input type="checkbox"><span>What changes for personal phones, school-issued devices, platforms, and take-home access?</span></label>
             <label class="audit-item"><input type="checkbox"><span>Which students may benefit, and which may encounter new barriers?</span></label>
             <label class="audit-item"><input type="checkbox"><span>What learning design will fill the space the restriction creates?</span></label>
             <label class="audit-item"><input type="checkbox"><span>How will we know whether learning improved, rather than compliance alone?</span></label>
@@ -499,15 +582,30 @@
           </div>
           <p class="section-intro">The companion maps the positions. The linked sources contain the authors' own arguments and the evidence needed to assess them.</p>
         </div>
+        <h3 class="source-heading">Research and debate</h3>
         <div class="source-grid">
           <a class="source-link" href="https://www.penguinrandomhouse.com/books/838437/the-digital-delusion-by-jared-cooney-horvath-phd-med/" target="_blank" rel="noopener"><strong>Jared Cooney Horvath</strong><span>The Digital Delusion, publisher page</span></a>
           <a class="source-link" href="https://www.afterbabel.com/" target="_blank" rel="noopener"><strong>Jonathan Haidt and After Babel</strong><span>The developmental and phone-free-school argument</span></a>
           <a class="source-link" href="https://stefanbauschard.substack.com/p/the-screenish-inquisition-the-newest" target="_blank" rel="noopener"><strong>Stefan Bauschard</strong><span>The Screenish Inquisition</span></a>
+          <a class="source-link" href="https://www.ted.com/talks/candice_odgers_what_we_re_getting_wrong_about_teens_and_tech" target="_blank" rel="noopener"><strong>Candice Odgers at TED2026</strong><span>What we're getting wrong about teens and tech</span></a>
+          <a class="source-link" href="https://www.cosn.org/cosn-news/cosn-2026-conference-highlights-innovative-local-leadership-and-responsible-technology-use-in-k-12-education/" target="_blank" rel="noopener"><strong>CoSN2026</strong><span>Odgers keynote and evidence-based local decision-making</span></a>
+          <a class="source-link" href="https://doi.org/10.1111/jcpp.13190" target="_blank" rel="noopener"><strong>Odgers and Jensen (2020)</strong><span>Facts, fears, and future directions</span></a>
+          <a class="source-link" href="https://doi.org/10.1038/d41586-024-00902-2" target="_blank" rel="noopener"><strong>Odgers (2024)</strong><span>Nature review of The Anxious Generation</span></a>
+          <a class="source-link" href="https://pubmed.ncbi.nlm.nih.gov/32699514/" target="_blank" rel="noopener"><strong>Odgers and Jensen (2020)</strong><span>Digital inequality and offline vulnerability</span></a>
+          <a class="source-link" href="https://doi.org/10.1007/s42761-024-00282-w" target="_blank" rel="noopener"><strong>Taylor et al. (2024)</strong><span>No evidence of same-day linkages in a 14-day study</span></a>
           <a class="source-link" href="https://www.civicsoftechnology.org/curriculum" target="_blank" rel="noopener"><strong>Civics of Technology Project</strong><span>The five technoskeptical questions</span></a>
           <a class="source-link" href="https://publications.aap.org/pediatrics/article/157/2/e2025075320/206129/Digital-Ecosystems-Children-and-Adolescents-Policy" target="_blank" rel="noopener"><strong>American Academy of Pediatrics</strong><span>Digital ecosystems, children, and adolescents</span></a>
           <a class="source-link" href="https://doi.org/10.1016/j.lanepe.2025.101211" target="_blank" rel="noopener"><strong>SMART Schools study</strong><span>School phone policies and their associations</span></a>
           <a class="source-link" href="https://digitalcommons.nl.edu/ie/vol18/iss1/4" target="_blank" rel="noopener"><strong>Micah J. Miner</strong><span>When the Output Looks Like Learning</span></a>
           <a class="source-link" href="https://minerclass.github.io/technoskepticism-primer/" target="_blank" rel="noopener"><strong>Technoskepticism primer</strong><span>From Postman's propositions to educational practice</span></a>
+        </div>
+        <h3 class="source-heading">School-device and system policy</h3>
+        <div class="source-grid">
+          <a class="source-link" href="https://www.battlegroundps.org/page/chromebooks-2026" target="_blank" rel="noopener"><strong>Battle Ground Public Schools</strong><span>2026-27 Chromebook access changes</span></a>
+          <a class="source-link" href="https://support.iusd.org/hc/en-us/articles/5189251297939-Chromebook-Access-in-IUSD" target="_blank" rel="noopener"><strong>Irvine Unified</strong><span>Different 1:1 models by grade band</span></a>
+          <a class="source-link" href="https://edtech.lausd.org/apps/pages/index.jsp?pREC_ID=2744566&amp;tota11y=true&amp;type=d&amp;uREC_ID=4455629" target="_blank" rel="noopener"><strong>Los Angeles Unified</strong><span>Purposeful use, parent choice, and paper alternatives</span></a>
+          <a class="source-link" href="https://www.government.se/articles/2024/02/government-investing-in-more-reading-time-and-less-screen-time/" target="_blank" rel="noopener"><strong>Government of Sweden</strong><span>Books, analogue learning, and selective digital use</span></a>
+          <a class="source-link" href="https://gem-report-2023.unesco.org/recommendations/" target="_blank" rel="noopener"><strong>UNESCO GEM Report</strong><span>Technology on learners' terms</span></a>
         </div>
       </div>
     </section>
@@ -550,6 +648,13 @@
         claim: "Phone-based childhood may displace sleep, embodied play, independence, and face-to-face relationships during sensitive developmental periods.",
         strongest: "A broad developmental account that reaches beyond the school day and beyond academic achievement.",
         caution: "A school phone policy is one intervention inside that account, not a test of the entire thesis."
+      },
+      odgers: {
+        tab: "tab-odgers",
+        title: "Causality, variation, and equity",
+        claim: "Broad measures of screen time do not establish a large, uniform cause of adolescent mental-health trends; effects vary by person, activity, context, and existing vulnerability.",
+        strongest: "Demanding causal precision through preregistered cohorts, longitudinal and momentary studies, within-person comparisons, and attention to inequality.",
+        caution: "Small average or null associations do not show that every platform, practice, or vulnerable subgroup is safe. A population-level caution is not a universal benign-effect claim."
       },
       bauschard: {
         tab: "tab-bauschard",
