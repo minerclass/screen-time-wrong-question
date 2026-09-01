@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-mjm-ground="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,17 +15,23 @@
   <meta name="twitter:description" content="A screen-policy debate viewed through technoskepticism and pedagogical friction.">
   <link rel="canonical" href="https://minerclass.github.io/screen-time-wrong-question/pouch-and-bypass/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318334a'/%3E%3Cpath d='M18 15h28v34H18z' fill='none' stroke='%23d7a83e' stroke-width='4'/%3E%3Cpath d='M24 25h16M24 33h16M24 41h10' stroke='%23fffdf8' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://minerclass.github.io/tokens.css">
   <style>
     :root {
-      --ink: #17212b;
-      --paper: #f5f0e6;
+      /* Ground, ink and rules from the shared ecosystem tokens with
+         pre-adoption fallbacks. Same palette family as the K-12 device policy
+         hub, and as there the navy/teal/gold/rust accents sit on dark panels
+         and stay local. */
+      --ink: var(--mjm-ink, #17212b);
+      --paper: var(--mjm-bg, #f5f0e6);
       --paper-2: #ece4d5;
       --navy: #18334a;
       --teal: #176b68;
       --gold: #d7a83e;
       --rust: #a9472c;
-      --muted: #5c6670;
-      --line: rgba(23, 33, 43, .18);
+      --muted: var(--mjm-muted, #5c6670);
+      --line: var(--mjm-line, rgba(23, 33, 43, .18));
+      --mjm-accent: var(--mjm-gold, #d7a83e);
       --white: #fffdf8;
       --shadow: 0 18px 48px rgba(24, 51, 74, .13);
       --radius: 22px;
@@ -126,7 +132,7 @@
       padding: .45rem .7rem;
       border: 1px solid rgba(255,255,255,.28);
       border-radius: 999px;
-      color: #f7d98f;
+      color: #fae6b3;
       font-size: .74rem;
       font-weight: 800;
       letter-spacing: .09em;
@@ -156,7 +162,7 @@
     .thesis-card span {
       display: block;
       margin-bottom: 12px;
-      color: #f7d98f;
+      color: #fae6b3;
       font-size: .73rem;
       font-weight: 850;
       letter-spacing: .08em;
@@ -198,7 +204,7 @@
       letter-spacing: .1em;
       text-transform: uppercase;
     }
-    .dark .section-kicker { color: #f7d98f; }
+    .dark .section-kicker { color: #fae6b3; }
     h2 {
       max-width: 16ch;
       margin-bottom: 0;
@@ -358,7 +364,7 @@
       box-shadow: var(--shadow);
     }
     .cta h2 { max-width: 14ch; }
-    .cta p { max-width: 58ch; margin: 18px 0 0; color: rgba(255,255,255,.82); }
+    .cta p { max-width: 58ch; margin: 18px 0 0; color: rgba(255,255,255,.90); }
     .cta-actions { display: grid; gap: 10px; }
     .cta .button { width: 100%; }
     .footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted); }
