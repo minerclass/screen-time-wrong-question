@@ -64,3 +64,5 @@ Irvine Unified School District. (2026, August 22). *Chromebook access in IUSD*. 
 
 Los Angeles Unified School District. (2026). *Partners in EdTech innovation: LAUSD parent and family engagement for the digital age*. https://edtech.lausd.org/apps/pages/index.jsp?pREC_ID=2744566&tota11y=true&type=d&uREC_ID=4455629
 
+Miner, M. J. (2026). *K–12 device policy and pedagogical friction evidence hub*. https://minerclass.github.io/k12-device-policy-evidence-hub/
+
