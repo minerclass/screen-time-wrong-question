@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mjm-ground="light">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +15,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Screen Time Is the Wrong Question" />
 <meta name="twitter:description" content="What is the screen asking students to practice? An interactive companion to the CoSN essay by Micah J. Miner." />
+<link rel="stylesheet" href="https://minerclass.github.io/tokens.css">
 <style>
   /* ─── Reset & Base ──────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,14 +24,24 @@
     --navy:   #1e2d4a;
     --navy2:  #162236;
     --blue:   #3b82f6;
+    /* Text-safe blues. --blue measures 3.22 on paper and 3.70 on the dark hero as
+       label text, failing AA on both; it stays correct as a fill, rule, and
+       border. Text uses the paper value at 5.11 or the dark-band value at 5.75. */
+    --blue-text: #1d5fd0;
+    --blue-on-dark: #7aa9f9;
     --blue-lt:#eff6ff;
     --amber:  #f59e0b;
     --amber-lt:#fffbeb;
     --red:    #ef4444;
     --red-lt: #fef2f2;
-    --text:   #1f2937;
-    --muted:  #6b7280;
-    --bg:     #f8fafc;
+    /* Ground, ink, and muted come from the shared ecosystem tokens with
+       pre-adoption fallbacks. --muted matters here: at #6b7280 it measured 4.62
+       on the old cool ground but only 4.23 on the warmer shared one, so it takes
+       the shared muted (5.43) rather than being left to fail. */
+    --text:   var(--mjm-ink, #1f2937);
+    --muted:  var(--mjm-muted, #6b7280);
+    --bg:     var(--mjm-bg, #f8fafc);
+    --mjm-accent: var(--mjm-blue, #3b82f6);
     --white:  #ffffff;
     --border: #e5e7eb;
     --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
@@ -113,7 +124,7 @@
     font-weight: 600;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--blue);
+    color: var(--blue-on-dark);
     background: rgba(59,130,246,.12);
     border: 1px solid rgba(59,130,246,.3);
     padding: .35rem .9rem;
@@ -184,7 +195,7 @@
     flex-direction: column;
     align-items: center;
     gap: .5rem;
-    color: rgba(255,255,255,.35);
+    color: rgba(255,255,255,.62);
     font-size: .72rem;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -223,7 +234,7 @@
   .next-essay-label {
     display: block;
     margin-bottom: .25rem;
-    color: var(--blue);
+    color: var(--blue-text);
     font-size: .7rem;
     font-weight: 800;
     letter-spacing: .1em;
@@ -262,7 +273,7 @@
     font-weight: 700;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--blue);
+    color: var(--blue-text);
     margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
